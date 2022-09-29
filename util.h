@@ -34,17 +34,24 @@ std::set<T> setIntersection(std::set<T>& s1, std::set<T>& s2)
 template <typename T>
 std::set<T> setUnion(std::set<T>& s1, std::set<T>& s2)
 {
+  //creates union set
   set<T> unionSet;
+  //declares an iterator for the set
   typename set<T>::iterator it;
 
+  //iterates through s1 and add everything to union
   for(it = s1.begin(); it != s1.end(); ++it)
   {
     unionSet.insert(*it);
   }
+  //iterate through s2 and add everything not in s1
   for (it = s2.begin(); it != s2.end(); ++it)
   {
+    //if the element is not in union, add it 
     if(unionSet.find(*it) == unionSet.end())
     {
+      //the element is not unionSet
+      //add the element
       unionSet.insert(*it);
     }
   }

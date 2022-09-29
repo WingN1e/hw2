@@ -36,11 +36,17 @@ std::set<std::string> Book::keywords() const {
 
 std::string Book::displayString() const {
   string word = "";
+  //adds the name
   word = word + name_;
+  //makes a break in the line
   word = word + "\n";
+  //adds the author and IBSN in line two
   word = word + "Author: " + author_ + " IBSN: " + isbn_;
+  //makes a break in the line
   word = word + "\n";
+  //display price and quantity left
   word = word + to_string(price_) + " " + to_string(qty_) + " left."; 
+  //returns the string
   return word;
 }
 

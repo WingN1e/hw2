@@ -45,7 +45,7 @@ std::string Clothing::displayString() const {
   //makes a break in the line
   word = word + "\n";
   //display price and quantity left
-  word = word + to_string(price_) + " " + to_string(qty_) + "left.";
+  word = word + to_string(price_) + " " + to_string(qty_) + " left.";
   //returns the string
   return word;
 }

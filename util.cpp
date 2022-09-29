@@ -17,7 +17,7 @@ std::set<std::string> parseStringToWords(string rawWords)
 {
   //create a set of words to be returned and an empty string holder
   set<string> returnedWords;
-  string words = "";
+  string word = "";
 
   //checks to make sure the word length is greater than 2 letters
   if (rawWords.size() < 2)
