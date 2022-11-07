@@ -101,37 +101,30 @@ int main(int argc, char* argv[])
                 done = true;
             }
 	    /* Add support for other commands here */
-            //Add to cart command
-            else if (cmd == "ADD") 
-            {
-              string user;
-              int hitsCounter; 
-              if (ss >> user && ss >> hitsCounter)
-              {
-                //Checks to see if the hit is an appropriate size
-                if(hitsCounter <= (int)hits.size())
-                {
-                  ds.addToCart(user, hits[hitsCounter-1]);
+            //ADD functionality
+            else if (cmd == "ADD") {
+                string user;
+                int hitsCounter;
+                if (ss >> user && ss >> hitsCounter) {
+                    //check to see if the hit is an appropriate size 
+                    if (hitsCounter <= (int)hits.size()) {
+                        ds.addToCart(user, hits[hitsCounter-1]);
+                    }
                 }
-              }
             }
-            //View cart command
-            else if (cmd == "VIEWCART")
-            {
-              string user;
-              if (ss >> user)
-              {
-                ds.viewCart(user);
-              }
+            //VIEWCART functionality
+            else if (cmd == "VIEWCART") {
+                string user;
+                if (ss >> user) {
+                    ds.viewCart(user);
+                }
             }
-            //Buy entire cart command
-            else if (cmd == "BUYCART") 
-            {
-              string user;
-              if (ss >> user)
-              {
-                ds.buyCart(user);
-              }
+            //BUYCART functionality
+            else if (cmd == "BUYCART") {
+                string user;
+                if (ss >> user) {
+                    ds.buyCart(user);
+                }
             }
             else {
                 cout << "Unknown command" << endl;

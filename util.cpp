@@ -15,40 +15,35 @@ std::string convToLower(std::string src)
     to a set of words based on the criteria given in the assignment **/
 std::set<std::string> parseStringToWords(string rawWords)
 {
-  //create a set of words to be returned and an empty string holder
-  set<string> returnedWords;
-  string word = "";
-
-  //checks to make sure the word length is greater than 2 letters
-  if (rawWords.size() < 2)
-  {
-    //no possible keywords, returns an empty string set
+    
+    //create the set of words to be returned and a holder string
+    set<string> returnedWords;
+    string word = "";
+    
+    //check to make sure the length is greater than 2
+    if (rawWords.size() < 2) {
+        //no possible keywords - return empty set
+        return returnedWords;
+    }
+    
+    //iterate through the string and break up the words with substring, placing them in the set
+    
+    for (unsigned int i = 0; i < rawWords.size(); i++) {
+        if (isalpha(rawWords[i])) {
+            //if it is a letter, add it to our holder
+            word = word + rawWords[i];
+        }
+        else {
+            //not a letter, we've reached a delimiter
+            //check to see if our current word can be added
+            if (word.size() >= 2) {
+                //greater than 2 characters so we can add it
+                returnedWords.insert(word);
+            }
+            word = "";
+        }
+    }
     return returnedWords;
-  }
-
-  //iterates through the string and breaks up the words with substring
-  //placing them into the set
-  for (unsigned int i = 0; i < rawWords.size(); i++)
-  {
-    if (isalpha(rawWords[i]))
-    {
-      //if it's a word, add it into the string holder
-      word = word + rawWords[i];
-    }
-    else 
-    {
-      //reached the end 
-      //checks to see if our current word can be added
-      if(word.size() >= 2)
-      {
-        //can only be added if the word is greater or equal than
-        //two letters
-        returnedWords.insert(word);
-      }
-      word = "";
-    }
-  }
-  return returnedWords;
 }
 
 /**************************************************

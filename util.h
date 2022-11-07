@@ -4,8 +4,7 @@
 #include <string>
 #include <iostream>
 #include <set>
-
-using namespace std;
+using namespace std; 
 
 /** Complete the setIntersection and setUnion functions below
  *  in this header file (since they are templates).
@@ -14,48 +13,44 @@ using namespace std;
 template <typename T>
 std::set<T> setIntersection(std::set<T>& s1, std::set<T>& s2)
 {
-  //creates the intersection set
-  set<T> intersection;
-  //declares an iterator for the set
-  typename set<T>::iterator it;
-
-  //iterators through s1
-  for (it = s1.begin(); it != s1.end(); ++it)
-  {
-    //checks to see if an element is shared between s1 and s2
-    if(s2.find(*it) != s2.end())
-    {
-      //the element is present in s2
-      intersection.insert(*it);
+    //create intersection set
+    set<T> intersection;
+    //declare an iterator for the set
+    typename set<T>::iterator it;
+    
+    //iterate through s1
+    for (it = s1.begin(); it != s1.end(); ++it) {
+        //check to see if the element is shared
+        if (s2.find(*it) != s2.end()) {
+            //the element is present in s2
+            intersection.insert(*it);
+        }
     }
-  }
-  return intersection; 
+    return intersection;
 }
 template <typename T>
 std::set<T> setUnion(std::set<T>& s1, std::set<T>& s2)
 {
-  //creates union set
-  set<T> unionSet;
-  //declares an iterator for the set
-  typename set<T>::iterator it;
-
-  //iterates through s1 and add everything to union
-  for(it = s1.begin(); it != s1.end(); ++it)
-  {
-    unionSet.insert(*it);
-  }
-  //iterate through s2 and add everything not in s1
-  for (it = s2.begin(); it != s2.end(); ++it)
-  {
-    //if the element is not in union, add it 
-    if(unionSet.find(*it) == unionSet.end())
-    {
-      //the element is not unionSet
-      //add the element
-      unionSet.insert(*it);
+    //create union set
+    set<T> unionSet;
+    //declare an iterator for the set
+    typename set<T>::iterator it;
+    
+    //iterate through s1 and add everything to union
+    for (it = s1.begin(); it != s1.end(); ++it) {
+        unionSet.insert(*it);
     }
-  }
-  return unionSet;
+    //iterate through s2 and add everything not in s1
+    for (it = s2.begin(); it != s2.end(); ++it) {
+        //if the element is not in union, add it
+        if (unionSet.find(*it) == unionSet.end()) {
+            //the element is not unionSet
+            //add the element
+            unionSet.insert(*it);
+        }
+    }
+    return unionSet;
+
 }
 
 /***********************************************/
